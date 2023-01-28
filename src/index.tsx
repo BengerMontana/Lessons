@@ -1,62 +1,42 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-
-// function App() {
-//     return <h1>Hello app.js</h1>
-// }
-
-function Title() {
-    return <h1>Hello App.JS</h1>
-}
-function Content() {
-    return (
-        <div>
-            <p>Lorem</p>
-            <p>Lorem</p>
-        </div>
-    )
+interface ITitleProps {
+  text: string
 }
 
-function TitleContent() {
-    return (
-        <>
-            <Title />
-            <Content />
-        </>
-    )
+const Title = (props: ITitleProps) => {
+  console.log(props)
+  return <h1>Hello {props.text}</h1>
+}
+
+const Content = () => {
+  return (
+    <div>
+      <React.Fragment>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eaque quas doloremque esse quam veritatis eveniet dolores ipsam vero! Esse quia id debitis commodi dolorem, nobis ullam quas, molestias sed ex natus.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum asperiores, amet sequi aspernatur, nemo recusandae atque, quas minima unde natus saepe.
+        </p>
+      </React.Fragment>
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <>
+      <Title text="React"/>
+      <Title text="TS"/>
+      <Content />
+    </>
+  )
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
     <React.StrictMode>
-        <TitleContent />
+        <App/>
     </React.StrictMode>
 )
-
-// const h1 = React.createElement('h1', { id: 'title' }, 'Hello React')
-
-// const h1 = <h1 id="title">Hello React.js</h1>
-// const a = 10
-// const b = 'Product'
-// const list = (
-//     <ul id="list">
-//         <li>Item {a}</li>
-//         <li>{b} 2</li>
-//         <li>Item 3</li>
-//         <li>Item 4</li>
-//     </ul>
-// )
-// const list = React.createElement(
-//     'ul',
-//     null,
-//     React.createElement('li', null, 'list item1'),
-//     React.createElement('li', null, 'list item2'),
-//     React.createElement('li', null, 'list item3')
-// )
-
-// const content = (
-//     <div>
-//         {h1}
-//         {list}
-//     </div>
-// )
