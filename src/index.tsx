@@ -3,22 +3,28 @@ import ReactDOM from 'react-dom/client'
 interface ITitleProps {
   text: string
 }
+interface IContentProps {
+  text1: string
+  text2: string
+  year: number
+}
 
 const Title = (props: ITitleProps) => {
   console.log(props)
   return <h1>Hello {props.text}</h1>
 }
 
-const Content = () => {
+const Content = (props: IContentProps) => {
   return (
     <div>
       <React.Fragment>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eaque quas doloremque esse quam veritatis eveniet dolores ipsam vero! Esse quia id debitis commodi dolorem, nobis ullam quas, molestias sed ex natus.
+          {props.text1}
         </p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum asperiores, amet sequi aspernatur, nemo recusandae atque, quas minima unde natus saepe.
+          {props.text2}
         </p>
+        <div>Year: {props.year}</div>
       </React.Fragment>
     </div>
   )
@@ -29,7 +35,7 @@ function App() {
     <>
       <Title text="React"/>
       <Title text="TS"/>
-      <Content />
+      <Content text1="Hello world 1" text2="Hello world 2" year={2023}/>
     </>
   )
 }
