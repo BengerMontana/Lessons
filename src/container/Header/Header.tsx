@@ -4,34 +4,39 @@ import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Container } from '@mui/material'
-import styles from '../../container/Header/Header.module.scss'
+import '../../container/Header/Header.scss'
 import Logo from '../../components/Logo/Logo'
 import Menu from '../../components/Menu/Menu'
+import CartHeader from '../../components/CartHeader/CartHeader'
+import { StyledEngineProvider } from '@mui/material/styles'
 
 type Props = {}
 
 const Header = (props: Props) => {
     return (
-        <AppBar position="static" className={styles.appbar}>
-            <Container>
-                <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Logo />
-                    <Menu />
-                    <Button color="inherit" sx={{ ml: 3 }}>
-                        Login
-                    </Button>
-                </Toolbar>
-            </Container>
-        </AppBar>
+        <StyledEngineProvider injectFirst>
+            <AppBar position="static" className="appbar">
+                <Container>
+                    <Toolbar>
+                        <IconButton
+                            size="large"
+                            edge="start"
+                            color="inherit"
+                            aria-label="menu"
+                            sx={{ mr: 2 }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Logo />
+                        <Menu />
+                        <CartHeader />
+                        <Button color="inherit" sx={{ ml: 3 }}>
+                            Login
+                        </Button>
+                    </Toolbar>
+                </Container>
+            </AppBar>
+        </StyledEngineProvider>
     )
 }
 export default Header

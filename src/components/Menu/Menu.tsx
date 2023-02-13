@@ -1,11 +1,11 @@
 import Button from '@mui/material/Button'
 import Stack from '@mui/material/Stack'
-import styles from '../../components/Menu/Menu.module.scss'
+import '../../components/Menu/Menu.scss'
 
 type Props = {}
 const Menu = (props: Props) => {
     return (
-        <Stack direction="row" spacing={2} className={styles.menu}>
+        <Stack direction="row" spacing={2} className='menu'>
             <Button color="inherit">Home</Button>
             <Button color="inherit">About</Button>
             <Button color="inherit">Payment</Button>
