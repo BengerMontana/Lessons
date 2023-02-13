@@ -13,7 +13,7 @@ const productsArray:Product[] = [
   {
     id: 1,
     title: 'iPhone 14 Pro',
-    description: '<p class="red">This is iphone 14 PRO</p>',
+    description: 'This is iphone 14 PRO',
     type: 'phone',
     capacity: '512',
     price: 1000,
