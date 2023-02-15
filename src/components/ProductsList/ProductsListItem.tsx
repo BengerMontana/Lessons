@@ -5,7 +5,7 @@ import {
     Button,
     TextField,
 } from '@mui/material'
-import { Component } from 'react'
+import { useState } from 'react'
 import '../ProductsList/ProductsListItem.scss'
 
 type Props = {
@@ -17,80 +17,49 @@ type Props = {
     image: string
 }
 
-type State = {
-    count: number
-    changeColor: string
-}
+const ProductsListItem = ({
+    title,
+    description,
+    type,
+    capacity,
+    price,
+    image,
+}: Props) => {
+    const [count, setCount] = useState<number>(1)
 
-class ProductsListItem extends Component<Props, State> {
-    state = {
-        count: 1,
-        changeColor: 'green',
+    const onIncrement = () => {
+        setCount(count + 1)
     }
-
-    onIncrementClick = () => {
-        this.setState((prevState: State) => ({
-            count: prevState.count + 1,
-        }))
-    }
-    onDecrementClick = () => {
-        this.setState((prevState: State) => ({
-            count: prevState.count - 1,
-        }))
+    const onDecrement = () => {
+        setCount(count - 1)
     }
 
-    changeColorClick = () => {
-        this.setState((prevState: State) => ({
-            changeColor: prevState.changeColor === 'green' ? 'red' : 'green',
-        }))
-    }
-
-    render() {
-        const { title, description, type, capacity, price, image } = this.props
-        return (
-            <Card variant="outlined">
-                <CardContent>
-                    <div className="product-image">
-                        <img src={image} alt="" />
-                    </div>
-                    <div className="product-title">{title}</div>
-                    <div className="product-desc">{description}</div>
-                    <div className="product-features">Type: {type}</div>
-                    <div className="product-features">
-                        Capacity: {capacity} Gb
-                    </div>
-                    <p>
-                        Color:{' '}
-                        <span className={this.state.changeColor}>
-                            {this.state.changeColor}
-                        </span>
-                    </p>
-                    <button onClick={this.changeColorClick}>
-                        Change Color
-                    </button>
-                    <div className="product-price">{price} $</div>
-                    <div className="product-quantity">
-                        <Button
-                            variant="outlined"
-                            onClick={this.onDecrementClick}
-                        >
-                            -
-                        </Button>
-                        <TextField size="small" value={this.state.count} />
-                        <Button
-                            variant="outlined"
-                            onClick={this.onIncrementClick}
-                        >
-                            +
-                        </Button>
-                    </div>
-                </CardContent>
-                <CardActions className="product-btn-wrap">
-                    <Button variant="outlined">Add to cart</Button>
-                </CardActions>
-            </Card>
-        )
-    }
+    return (
+        <Card variant="outlined">
+            <CardContent>
+                <div className="product-image">
+                    <img src={image} alt="" />
+                </div>
+                <div className="product-title">{title}</div>
+                <div className="product-desc">{description}</div>
+                <div className="product-features">Type: {type}</div>
+                <div className="product-features">Capacity: {capacity} Gb</div>
+                <div className="product-price">{price} $</div>
+                <div className="product-quantity">
+                    <Button variant="outlined" onClick={() => onDecrement()}>
+                        -
+                    </Button>
+                    <TextField size="small" value={count} />
+                    <Button variant="outlined" onClick={() => onIncrement()}>
+                        +
+                    </Button>
+                </div>
+            </CardContent>
+            <CardActions className="product-btn-wrap">
+                <Button variant="outlined">Add to cart</Button>
+            </CardActions>
+        </Card>
+    )
 }
 
 export default ProductsListItem
