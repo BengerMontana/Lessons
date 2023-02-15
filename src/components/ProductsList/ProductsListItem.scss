@@ -28,9 +28,16 @@
     }
 }
 .product-quantity {
-  display: flex;
-  justify-content: center;
-  input {
-    text-align: center;
-  }
+    display: flex;
+    justify-content: center;
+    input {
+        text-align: center;
+    }
+}
+
+.green {
+    color: green;
+}
+.red {
+    color: red;
 }

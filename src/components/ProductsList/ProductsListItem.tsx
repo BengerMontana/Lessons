@@ -5,7 +5,7 @@ import {
     Button,
     TextField,
 } from '@mui/material'
-import { Component, ReactNode } from 'react'
+import { Component } from 'react'
 import '../ProductsList/ProductsListItem.scss'
 
 type Props = {
@@ -19,21 +19,38 @@ type Props = {
 
 type State = {
     count: number
+    changeColor: string
 }
 
 class ProductsListItem extends Component<Props, State> {
     state = {
         count: 1,
+        changeColor: 'green',
     }
-    onIncrementClick = (num: number) => {
+
+    onIncrementClick = () => {
         this.setState((prevState: State) => ({
-            count: prevState.count + num,
+            count: prevState.count + 1,
         }))
     }
     onDecrementClick = () => {
         this.setState((prevState: State) => ({
             count: prevState.count - 1,
         }))
+    }
+
+    changeColorClick = () => {
+        this.setState((prevState: State) => {
+            if (prevState.changeColor === 'green') {
+              return {
+                changeColor: 'red',
+              }
+            } else {
+              return {
+                changeColor: 'green',
+              }
+            }
+        })
     }
 
     render() {
@@ -50,6 +67,15 @@ class ProductsListItem extends Component<Props, State> {
                     <div className="product-features">
                         Capacity: {capacity} Gb
                     </div>
+                    <p>
+                        Color:{' '}
+                        <span className={this.state.changeColor}>
+                            {this.state.changeColor}
+                        </span>
+                    </p>
+                    <button onClick={this.changeColorClick}>
+                        Change Color
+                    </button>
                     <div className="product-price">{price} $</div>
                     <div className="product-quantity">
                         <Button
@@ -61,7 +87,7 @@ class ProductsListItem extends Component<Props, State> {
                         <TextField size="small" value={this.state.count} />
                         <Button
                             variant="outlined"
-                            onClick={() => this.onIncrementClick(3)}
+                            onClick={this.onIncrementClick}
                         >
                             +
                         </Button>
