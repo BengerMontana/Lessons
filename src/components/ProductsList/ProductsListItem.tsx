@@ -26,14 +26,14 @@ const ProductsListItem = ({
     image,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
-
     const onIncrement = () => {
         setCount(count + 1)
     }
     const onDecrement = () => {
-        setCount(count - 1)
+        if (count > 1) {
+            setCount(count - 1)
+        }
     }
-
     return (
         <Card variant="outlined">
             <CardContent>
