@@ -47,6 +47,4 @@ class ProductsListItem extends Component<Props> {
     }
 }
 
-// const ProductsListItem = (: Props) => {}
-
 export default ProductsListItem
