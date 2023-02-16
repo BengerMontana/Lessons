@@ -10,9 +10,14 @@ import Menu from '../../components/Menu/Menu'
 import CartHeader from '../../components/CartHeader/CartHeader'
 import { StyledEngineProvider } from '@mui/material/styles'
 
-type Props = {}
+type Props = {
+    cartData: {
+        totalCount: number
+        totalPrice: number
+    }
+}
 
-const Header = (props: Props) => {
+const Header = ({ cartData }: Props) => {
     return (
         <StyledEngineProvider injectFirst>
             <AppBar position="static" className="appbar">
@@ -29,7 +34,7 @@ const Header = (props: Props) => {
                         </IconButton>
                         <Logo />
                         <Menu />
-                        <CartHeader />
+                        <CartHeader cartData={cartData} />
                         <Button color="inherit" sx={{ ml: 3 }}>
                             Login
                         </Button>
