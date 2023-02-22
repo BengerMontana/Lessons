@@ -1,12 +1,14 @@
 import '../Home/Home.scss'
 import ProductsList from '../../components/ProductsList/ProductsList'
 
-type Props = {}
-const Home = (props: Props) => {
-  return (
-    <div>
-      <ProductsList/>
-    </div>
-  )
+type Props = {
+    addProductToCart: (count: number, price: number) => void
+}
+const Home = ({ addProductToCart }: Props) => {
+    return (
+        <div>
+            <ProductsList addProductToCart={addProductToCart} />
+        </div>
+    )
 }
 export default Home

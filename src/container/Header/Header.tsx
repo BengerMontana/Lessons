@@ -11,13 +11,12 @@ import CartHeader from '../../components/CartHeader/CartHeader'
 import { StyledEngineProvider } from '@mui/material/styles'
 
 type Props = {
-    cartData: {
-        totalCount: number
-        totalPrice: number
+    productsInCart: {
+        [id: number]: number
     }
 }
 
-const Header = ({ cartData }: Props) => {
+const Header = ({ productsInCart }: Props) => {
     return (
         <StyledEngineProvider injectFirst>
             <AppBar position="static" className="appbar">
@@ -34,7 +33,7 @@ const Header = ({ cartData }: Props) => {
                         </IconButton>
                         <Logo />
                         <Menu />
-                        <CartHeader cartData={cartData} />
+                        <CartHeader productsInCart={productsInCart} />
                         <Button color="inherit" sx={{ ml: 3 }}>
                             Login
                         </Button>

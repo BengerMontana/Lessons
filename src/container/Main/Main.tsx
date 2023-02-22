@@ -6,10 +6,10 @@ type Props = {
     addProductToCart: (count: number, price: number) => void
 }
 
-const Main = (props: Props) => {
+const Main = ({ addProductToCart }: Props) => {
     return (
         <Container sx={{ padding: '60px 0' }}>
-            <Home />
+            <Home addProductToCart={addProductToCart} />
         </Container>
     )
 }

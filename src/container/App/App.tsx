@@ -15,29 +15,22 @@ const theme = createTheme({
     },
 })
 
-type CartDataProps = {
-    totalCount: number
-    totalPrice: number
+type ProductsInCart = {
+    [id: number]: number
 }
 
 const App = (props: Props) => {
-    const [cartData, setCartData] = useState<CartDataProps>({
-        totalCount: 0,
-        totalPrice: 0,
+    const [productsInCart, setProductsInCart] = useState<ProductsInCart>({
+        1: 5,
+        2: 5,
     })
-
-    const addProductToCart = (count: number, price: number) => {
-        setCartData((prevState) => ({
-            totalCount: prevState.totalCount + count,
-            totalPrice: prevState.totalPrice + price * count,
-        }))
-    }
+    const addProductToCart = (count: number, price: number) => {}
 
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Header cartData={cartData} />
+                <Header productsInCart={productsInCart} />
                 <button onClick={() => addProductToCart(5, 500)}>
                     Add to cart (5 count, 500$ price)
                 </button>
