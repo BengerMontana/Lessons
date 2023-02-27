@@ -27,7 +27,10 @@ type ProductsInCart = {
 }
 
 const App = (props: Props) => {
-    const [productsInCart, setProductsInCart] = useState<ProductsInCart>({})
+    const [productsInCart, setProductsInCart] = useState<ProductsInCart>({
+        1: 5,
+        2: 5,
+    })
     const addProductToCart = (id: number, count: number) => {
         setProductsInCart((prevState) => ({
             ...prevState,
@@ -48,11 +51,15 @@ const App = (props: Props) => {
                                 <Home addProductToCart={addProductToCart} />
                             }
                         />
-                        <Route path="cart" element={<CartPage />} />
+                        <Route
+                            path="cart"
+                            element={
+                                <CartPage productsInCart={productsInCart} />
+                            }
+                        />
                         <Route path="about" element={<About />} />
                         <Route path="payment" element={<Payment />} />
-                        <Route path="shipping" element={<Shipping/>}/>
-                        
+                        <Route path="shipping" element={<Shipping />} />
                     </Routes>
                 </Container>
                 <Footer />
