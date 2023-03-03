@@ -1,1 +1,13 @@
-/*# sourceMappingURL=Menu.css.map */
+.menu button {
+  padding: 0;
+}
+.menu a {
+  text-decoration: none;
+  color: inherit;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+}
+.menu a:focus {
+  color: red;
+}/*# sourceMappingURL=Menu.css.map */

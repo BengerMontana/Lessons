@@ -21,4 +21,29 @@
 .product-btn-wrap {
   display: flex;
   justify-content: center;
+}
+
+.product-image {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.product-image img {
+  width: 150px;
+  height: auto;
+}
+
+.product-quantity {
+  display: flex;
+  justify-content: center;
+}
+.product-quantity input {
+  text-align: center;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
 }/*# sourceMappingURL=ProductsListItem.css.map */
