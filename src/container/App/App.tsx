@@ -42,6 +42,13 @@ const App = (props: Props) => {
     const removeProductFromCart = (id: number) => {
         setProductsInCart((prevState) => omit(prevState, [id]))
     }
+
+    const changeProductQuantity = (id: number, count: number) => {
+        setProductsInCart((prevState) => ({
+            ...prevState,
+            [id]: count,
+        }))
+    }
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={theme}>
@@ -59,9 +66,11 @@ const App = (props: Props) => {
                             path="cart"
                             element={
                                 <CartPage
-                                    productsInCart={productsInCart}
                                     removeProductFromCart={
                                         removeProductFromCart
+                                    }
+                                    changeProductQuantity={
+                                        changeProductQuantity
                                     }
                                 />
                             }

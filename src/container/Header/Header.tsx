@@ -33,7 +33,7 @@ const Header = ({ productsInCart }: Props) => {
                         </IconButton>
                         <Logo />
                         <Menu />
-                        <CartHeader productsInCart={productsInCart} />
+                        <CartHeader/>
                         <Button color="inherit" sx={{ ml: 3 }}>
                             Login
                         </Button>

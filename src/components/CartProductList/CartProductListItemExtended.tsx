@@ -1,18 +1,17 @@
 import { Card, CardContent, Grid, CardActions, Button } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { Product } from 'utils/productsArray'
+import { useAppDispatch } from 'redux/hooks'
+import { removeProductFromCart, changeProductQuantity } from 'redux/cartReducer'
+import Quantity from 'components/Quantity/Quantity'
 
 type Props = {
     product: Product
     productCount: number
-    removeProductFromCart: (id: number) => void
 }
 
-const CartProductListItemExtended = ({
-    product,
-    productCount,
-    removeProductFromCart,
-}: Props) => {
+const CartProductListItemExtended = ({ product, productCount }: Props) => {
+    const dispatch = useAppDispatch()
     return (
         <Grid item xs={12} sm={4}>
             <Card>
@@ -23,11 +22,35 @@ const CartProductListItemExtended = ({
                     <div>{product.title}</div>
                     <p>Price for one item: {product.price}</p>
                     <p>Count: {productCount}</p>
+                    <Quantity
+                        count={productCount}
+                        onDecrement={() =>
+                            productCount <= 1
+                                ? dispatch(removeProductFromCart(product.id))
+                                : dispatch(
+                                      changeProductQuantity({
+                                          id: product.id,
+                                          count: productCount - 1,
+                                      })
+                                  )
+                        }
+                        onIncrement={() =>
+                            dispatch(
+                                changeProductQuantity({
+                                    id: product.id,
+                                    count: productCount + 1,
+                                })
+                            )
+                        }
+                        minCount={0}
+                    />
                 </CardContent>
                 <CardActions>
                     <Button
                         variant="outlined"
-                        onClick={() => removeProductFromCart(product.id)}
+                        onClick={() =>
+                            dispatch(removeProductFromCart(product.id))
+                        }
                     >
                         <DeleteIcon />
                     </Button>
