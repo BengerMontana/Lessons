@@ -13,6 +13,7 @@ import CartPage from 'pages/Cart/CartPage'
 import About from 'pages/About/About'
 import Payment from 'pages/Payment/Payment'
 import Shipping from 'pages/Shipping/Shipping'
+import CheckoutPage from 'pages/Checkout/CheckoutPage'
 import { omit } from 'lodash'
 
 type Props = {}
@@ -78,6 +79,7 @@ const App = (props: Props) => {
                         <Route path="about" element={<About />} />
                         <Route path="payment" element={<Payment />} />
                         <Route path="shipping" element={<Shipping />} />
+                        <Route path="checkout" element={<CheckoutPage />} />
                     </Routes>
                 </Container>
                 <Footer />

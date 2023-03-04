@@ -3,6 +3,7 @@ import CartProductList from 'components/CartProductList/CartProductList'
 import { Typography, Grid } from '@mui/material'
 import CartProductListItemExtended from 'components/CartProductList/CartProductListItemExtended'
 import { useAppSelector } from 'redux/hooks'
+import { Link } from 'react-router-dom'
 
 type Props = {
     removeProductFromCart: (id: number) => void
@@ -28,6 +29,7 @@ const CartPage = ({ removeProductFromCart, changeProductQuantity }: Props) => {
                 />
             </Grid>
             <CartTotal productsInCart={productsInCart} />
+            <Link to="/checkout">Proceed to checkout</Link>
         </div>
     )
 }
