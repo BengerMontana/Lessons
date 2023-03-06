@@ -7,6 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { useAppDispatch, useAppSelector } from 'redux/hooks'
 import { removeLike, addLike } from 'redux/likeReducer'
 import { addProductToCart } from 'redux/cartReducer'
+import { Link } from 'react-router-dom'
 
 type Props = {
     id: number
@@ -55,7 +56,9 @@ const ProductsListItem = ({
                 <div className="product-image">
                     <img src={image} alt="" />
                 </div>
-                <div className="product-title">{title}</div>
+                <div className="product-title">
+                    <Link to={`/products/${id}`}>{title}</Link>{' '}
+                </div>
                 <div className="product-desc">{description}</div>
                 <div className="product-features">Type: {type}</div>
                 <div className="product-features">Capacity: {capacity} Gb</div>

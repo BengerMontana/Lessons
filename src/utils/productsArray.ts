@@ -5,7 +5,8 @@ export type Product = {
   type: string,
   capacity: string,
   price: number,
-  image: string
+  image: string,
+  fullDesc: string
 }
 
 const productsArray:Product[] = [
@@ -16,7 +17,8 @@ const productsArray:Product[] = [
     type: 'phone',
     capacity: '512',
     price: 1000,
-    image:"/images/iphone-13-Blue.webp"
+    image:"/images/iphone-13-Blue.webp",
+    fullDesc: '<div class="red">Hello world!</div>',
   },
   {
     id: 2,
@@ -25,7 +27,8 @@ const productsArray:Product[] = [
     type: 'phone',
     capacity: '256',
     price: 900,
-    image:"/images/iphone-13-Green.webp"
+    image:"/images/iphone-13-Green.webp",
+    fullDesc: '<div class="red">Hello world!</div>',
   },
   {
     id: 3,
@@ -34,7 +37,8 @@ const productsArray:Product[] = [
     type: 'phone',
     capacity: '512',
     price: 1200,
-    image:"/images/iphone-13-Midnight.webp"
+    image:"/images/iphone-13-Midnight.webp",
+    fullDesc: '<div class="red">Hello world!</div>',
   },
   {
     id: 4,
@@ -43,7 +47,8 @@ const productsArray:Product[] = [
     type: 'phone',
     capacity: '64',
     price: 350,
-    image:"/images/iphone-13-Pink.webp"
+    image:"/images/iphone-13-Pink.webp",
+    fullDesc: '<div class="red">Hello world!</div>',
   },
   {
     id: 5,
@@ -52,7 +57,8 @@ const productsArray:Product[] = [
     type: 'phone',
     capacity: '128',
     price: 180,
-    image:"/images/iphone-13-Red.webp"
+    image:"/images/iphone-13-Red.webp",
+    fullDesc: '<div class="red">Hello world!</div>',
   },
   {
     id: 6,
@@ -61,7 +67,8 @@ const productsArray:Product[] = [
     type: 'phone',
     capacity: '16',
     price: 50,
-    image:"/images/iphone-13-Starlight.webp"
+    image:"/images/iphone-13-Starlight.webp",
+    fullDesc: '<div class="red">Hello world!</div>',
   },
 ]
 

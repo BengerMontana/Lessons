@@ -15,6 +15,7 @@ import Payment from 'pages/Payment/Payment'
 import Shipping from 'pages/Shipping/Shipping'
 import CheckoutPage from 'pages/Checkout/CheckoutPage'
 import { omit } from 'lodash'
+import ProductPage from 'pages/Product/ProductPage'
 
 type Props = {}
 
@@ -80,6 +81,7 @@ const App = (props: Props) => {
                         <Route path="payment" element={<Payment />} />
                         <Route path="shipping" element={<Shipping />} />
                         <Route path="checkout" element={<CheckoutPage />} />
+                        <Route path="/products/:id" element={<ProductPage />} />
                     </Routes>
                 </Container>
                 <Footer />
