@@ -7,7 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { createTheme, StyledEngineProvider } from '@mui/material/styles'
 import '../../assets/style.scss'
 import { ThemeProvider } from '@mui/system'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes } from 'react-router-dom'
 import CartPage from 'pages/Cart/CartPage'
 import About from 'pages/About/About'
@@ -15,6 +15,8 @@ import Payment from 'pages/Payment/Payment'
 import Shipping from 'pages/Shipping/Shipping'
 import CheckoutPage from 'pages/Checkout/CheckoutPage'
 import { omit } from 'lodash'
+import { useAppDispatch } from 'redux/hooks'
+import { fetchProducts } from 'redux/productsReducer'
 
 type Props = {}
 
@@ -29,6 +31,11 @@ type ProductsInCart = {
 }
 
 const App = (props: Props) => {
+    const dispatch = useAppDispatch()
+    useEffect(() => {
+        dispatch(fetchProducts())
+    })
+
     const [productsInCart, setProductsInCart] = useState<ProductsInCart>({
         1: 5,
         2: 5,

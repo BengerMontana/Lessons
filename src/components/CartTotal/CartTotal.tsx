@@ -1,18 +1,19 @@
-import productsArray, { getProductsObject, Product } from 'utils/productsArray'
+import { useAppSelector } from 'redux/hooks'
+import { getProductsObject, Product } from 'utils/productsArray'
+
+type ProductsObject = {
+    [id: number]: Product
+}
 
 type Props = {
     productsInCart: {
         [id: number]: number
     }
-    productsObject?: {
-        [id: number]: Product
-    }
 }
 
-const CartTotal = ({
-    productsInCart,
-    productsObject = getProductsObject(productsArray),
-}: Props) => {
+const CartTotal = ({ productsInCart }: Props) => {
+    const productsArray = useAppSelector((state) => state.products)
+    const productsObject: ProductsObject = getProductsObject(productsArray)
     return (
         <div>
             {Object.keys(productsInCart).reduce(
